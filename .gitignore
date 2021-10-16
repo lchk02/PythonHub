@@ -105,5 +105,5 @@ venv.bak/
 
 # user config
 .idea
-.DS_Store
+/.DS_Store
 wubi98
