@@ -104,6 +104,6 @@ venv.bak/
 .mypy_cache/
 
 # user config
-.idea
-/.DS_Store
-wubi98
+.idea/
+wubi98/
+*.DS_Store
