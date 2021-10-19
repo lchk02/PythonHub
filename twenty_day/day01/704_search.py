@@ -19,21 +19,16 @@
 def search(nums, target):
     left = 0
     right = len(nums) - 1
-    if target < nums[left] or target > nums[right]:
-        return -1
-    else:
-        while left != right:
-            mid = (left + right) // 2
-            if nums[mid] == target:
-                return mid
-            elif nums[mid] > target:
-                right = mid - 1
-            else:
-                left = mid + 1
-        if nums[left] == target:
-            return left
+    while left <= right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] > target:
+            right = mid - 1
         else:
-            return -1
+            left = mid + 1
+    else:
+        return -1
 
 
 nums1 = [-2, 0, 3, 5, 9, 12]

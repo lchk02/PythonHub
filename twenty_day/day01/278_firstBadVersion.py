@@ -39,11 +39,9 @@ def is_bad_version(version):
 
 def first_bad_version(n):
     left = 1
-    right = n
+    right = n  # 一定存在错误的版本
     if is_bad_version(left):  # 第一个版本是错误的版本，直接返回
         return left
-    elif bool(1-is_bad_version(right)):  # 最后一个版本是正确的版本，不存在错误，返回-1
-        return -1
     else:  # 此时，第一个版本一定是正确的，最后一个版本一定是错误的
         while left < right-1:
             mid = (left + right) // 2
@@ -53,6 +51,19 @@ def first_bad_version(n):
             else:
                 left = mid
         return right
+
+
+def first_bad_version2(n):
+    left = 0
+    right = n
+    while left <= right:
+        mid = (left + right) // 2
+        if is_bad_version(mid):
+            right = mid - 1
+        else:
+            left = mid + 1
+    else:
+        return left
 
 
 print(first_bad_version(5))
