@@ -19,7 +19,6 @@ def merge(li, low, mid, high):
         tmp_li.append(li[j])
         j += 1
     li[low:high+1] = tmp_li
-    # return tmp_li
 
 
 def merge_sort(li, low, high):

@@ -11,9 +11,6 @@ def factorial(n):
     return 1
 
 
-# print(factorial(4))
-
-
 def moving(layers, a, b, c):
     if layers > 0:
         moving(layers-1, a, c, b)

@@ -36,7 +36,6 @@ def heap_sort(li):
     n = len(li)
     for i in range((n-2)//2, -1, -1):  # 构建堆
         sift(li, i, n-1)
-    # print(li)  # 建堆完成
     for i in range(n-1, -1, -1):
         li[0], li[i] = li[i], li[0]
         sift(li, 0, i-1)

@@ -1,11 +1,11 @@
-import random
-
 """
 LowB三人组排序算法：
 1. 冒泡排序
 2. 选择排序
 3. 插入排序
 """
+
+import random
 
 
 def bubble_sort0(li):
