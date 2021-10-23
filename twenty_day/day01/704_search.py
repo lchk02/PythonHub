@@ -16,20 +16,25 @@
 """
 
 
-def search(nums, target):
-    left = 0
-    right = len(nums) - 1
+def binary_search(nums, target):
+    """
+    标准二分查找
+    :param nums:
+    :param target:
+    :return:
+    """
+    left, right = 0, len(nums) - 1
     while left <= right:
         mid = (left + right) // 2
-        if nums[mid] == target:
+        val = nums[mid]
+        if val == target:
             return mid
-        elif nums[mid] > target:
+        elif val > target:
             right = mid - 1
         else:
             left = mid + 1
-    else:
-        return -1
+    return -1
 
 
-nums1 = [-2, 0, 3, 5, 9, 12]
-print(search(nums1, -3))
+li = [-2, 0, 3, 5, 9, 12]
+print(binary_search(li, 10))

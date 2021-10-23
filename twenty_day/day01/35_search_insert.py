@@ -26,6 +26,12 @@
 
 
 def search_insert(nums, target):
+    """
+    由标准二分查找修改而来
+    :param nums:
+    :param target:
+    :return:
+    """
     left = 0
     right = len(nums) - 1
     while left <= right:

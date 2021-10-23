@@ -23,47 +23,29 @@
 
 import random
 
-# The isBadVersion API is already defined for you.
-# @param version, an integer
-# @return an integer
-# def isBadVersion(version):
-
 
 def is_bad_version(version):
-    # bad_version = random.randint(1, 10)
-    # print("bad_version: ", bad_version)
     bad_version = 5
-    print("API被调用")
     return version >= bad_version
 
 
 def first_bad_version(n):
-    left = 1
-    right = n  # 一定存在错误的版本
-    if is_bad_version(left):  # 第一个版本是错误的版本，直接返回
-        return left
-    else:  # 此时，第一个版本一定是正确的，最后一个版本一定是错误的
-        while left < right-1:
-            mid = (left + right) // 2
-            flag = is_bad_version(mid)
-            if flag:
-                right = mid
-            else:
-                left = mid
-        return right
-
-
-def first_bad_version2(n):
+    """
+    由标准二分查找修改而来
+    :param n:
+    :return:
+    """
     left = 0
     right = n
     while left <= right:
         mid = (left + right) // 2
+        # mid = left + ((right - left) >> 1)
+        print(mid)
         if is_bad_version(mid):
             right = mid - 1
         else:
             left = mid + 1
-    else:
-        return left
+    return left
 
 
 print(first_bad_version(5))
