@@ -1,5 +1,7 @@
 from random import shuffle
 
+from algorithm.CalTime import cal_time
+
 
 def sift(li, low, high):
     """
@@ -27,6 +29,7 @@ def sift(li, low, high):
     return li
 
 
+@cal_time
 def top_k(li, k):
     heap = li[:k]
     for i in range((k-2)//2, -1, -1):
@@ -40,9 +43,3 @@ def top_k(li, k):
         heap[0], heap[i] = heap[i], heap[0]
         sift(heap, 0, i-1)
     return heap
-
-
-li1 = [i for i in range(1, 100)]
-shuffle(li1)
-print(li1)
-print(top_k(li1, 10))

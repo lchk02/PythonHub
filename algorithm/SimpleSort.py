@@ -7,7 +7,10 @@ LowB三人组排序算法：
 
 import random
 
+from algorithm.CalTime import cal_time
 
+
+@cal_time
 def bubble_sort0(li):
     """
     冒泡排序
@@ -22,6 +25,7 @@ def bubble_sort0(li):
     return li
 
 
+@cal_time
 def bubble_sort1(li):
     """
     冒泡排序
@@ -35,6 +39,7 @@ def bubble_sort1(li):
     return li
 
 
+@cal_time
 def select_sort(li):
     """
     选择排序
@@ -49,7 +54,13 @@ def select_sort(li):
     return li
 
 
+@cal_time
 def insert_sort(li):
+    """
+    插入排序
+    :param li:
+    :return:
+    """
     for j in range(1, len(li)):
         tmp = li[j]  # j指向无序区第一个元素
         i = j - 1  # i指向有序区最后一个元素
@@ -58,11 +69,3 @@ def insert_sort(li):
             i -= 1
         li[i+1] = tmp
     return li
-
-
-li1 = [random.randint(1, 100) for i in range(5)]
-print("原始数组:", li1)
-# li1 = [7, 1, 2, 9, 9]
-# bubble_sort1(li1)
-# select_sort(li1)
-print(insert_sort(li1))

@@ -13,22 +13,21 @@
 示例 2：
 输入：numbers = [2,3,4], target = 6
 输出：[1,3]
-
-优化思考：
-取mid*2与target比较
 """
 
 
 def two_sum(nums, target):
     n = len(nums)
-    for i in range(n-1):
-        for j in range(i+1, n):
-            sum2 = nums[i] + nums[j]
-            if sum2 == target:
-                return [i+1, j+1]
-            elif sum2 > target:
-                break
+    i, j = 0, n-1
+    while i < j:
+        if nums[i] + nums[j] == target:
+            return [i+1, j+1]
+        elif nums[i] + nums[j] > target:
+            j -= 1
+        else:
+            i += 1
+    return -1
 
 
-li = [1, 2, 3, 4, 4, 9, 56, 90]
-print(two_sum(li, 8))
+li = [1, 2]
+print(two_sum(li, 4))

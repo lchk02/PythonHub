@@ -14,17 +14,78 @@
 
 进阶：
 请你设计时间复杂度为 O(n) 的算法解决本问题
+
+官方题解：
+1.数组元素全部为正数，平方后直接返回；
+2.数组元素全部为负数，平方后反转；
+3.既有正数也有负数，平方后，两段有序，一次归并后返回；
+
+或者：
+从首位两端开始判断，倒序插入空数组中；
 """
 
+from random import randint
+from copy import deepcopy
+
 from algorithm.QuickSort import quick_sort
+from algorithm.CalTime import cal_time
 
 
+@cal_time
 def sorted_squares(nums):
     for i in range(0, len(nums)):
         nums[i] = nums[i] ** 2
     return quick_sort(nums)
 
 
-li = []
-# print(sorted_squares(li))
-print(len(li))
+@cal_time
+def sorted_squares2(nums):
+    n = len(nums)
+    i, j = 0, n-1
+    while i <= j:
+        mid = (j - i) // 2 + i
+        if nums[mid] < 0:
+            i = mid + 1
+        else:
+            j = mid - 1
+    i, j = i-1, i
+    ans = list()
+    while i >= 0 or j < n:
+        if i < 0:
+            ans.append(nums[j] * nums[j])
+            j += 1
+        elif j == n:
+            ans.append(nums[i] * nums[i])
+            i -= 1
+        elif nums[i] * nums[i] < nums[j] * nums[j]:
+            ans.append(nums[i] * nums[i])
+            i -= 1
+        else:
+            ans.append(nums[j] * nums[j])
+            j += 1
+    return ans
+
+
+@cal_time
+def sorted_squares3(nums):
+    n = len(nums)
+    ans = [0] * n
+    i, j = 0, n-1
+    while i <= j:
+        i2 = nums[i] ** 2
+        j2 = nums[j] ** 2
+        if i2 > j2:
+            ans[n-1] = i2
+            i += 1
+        else:
+            ans[n-1] = j2
+            j -= 1
+        n -= 1
+    return ans
+
+
+li = sorted([randint(-9999, 9999) for i in range(10000)])
+li2 = deepcopy(li)
+print("原始数组：", li)
+print(sorted_squares2(li))
+print(sorted_squares3(li2))

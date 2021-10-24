@@ -1,5 +1,7 @@
 from random import shuffle
 
+from algorithm.CalTime import cal_time
+
 
 def merge(li, low, mid, high):
     i = low
@@ -21,17 +23,15 @@ def merge(li, low, mid, high):
     li[low:high+1] = tmp_li
 
 
-def merge_sort(li, low, high):
+def _merge_sort(li, low, high):
     if low < high:
         mid = (low + high) // 2
-        merge_sort(li, low, mid)
-        merge_sort(li, mid+1, high)
+        _merge_sort(li, low, mid)
+        _merge_sort(li, mid+1, high)
         merge(li, low, mid, high)
 
 
-li1 = [i for i in range(1, 50)]
-shuffle(li1)
-print(li1)
-# li1 = [3, 2]
-merge_sort(li1, 0, len(li1)-1)
-print(li1)
+@cal_time
+def merge_sort(li):
+    _merge_sort(li, 0, len(li)-1)
+    return li

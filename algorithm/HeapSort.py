@@ -40,11 +40,3 @@ def heap_sort(li):
         li[0], li[i] = li[i], li[0]
         sift(li, 0, i-1)
     return li
-
-
-li0 = [i for i in range(1, 100000)]
-shuffle(li0)
-li1 = deepcopy(li0)
-li2 = deepcopy(li0)
-quick_sort(li1)
-heap_sort(li2)

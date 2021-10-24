@@ -13,29 +13,6 @@
 
 def move_zeroes(nums):
     n = len(nums)
-    if n < 2:
-        return nums  # 多余
-    else:
-        i = 0  # 慢指针，指向可插入的位置
-        j = 0  # 快指针，寻找插入到i位置的数
-        for k in range(n):  # 初始化i j的位置
-            if nums[k] == 0:
-                i = k
-                j = i + 1
-                break
-            elif k == n-1 and nums[k] != 0:
-                return nums  # 多余
-        while j < n:
-            if nums[j] != 0:
-                nums[i], nums[j] = nums[j], nums[i]
-                i += 1
-            j += 1
-        else:
-            return nums
-
-
-def move_zeroes2(nums):
-    n = len(nums)
     left = right = 0
     while right < n:
         if nums[right] != 0:
@@ -46,4 +23,4 @@ def move_zeroes2(nums):
 
 
 li = [2, 0, 3, 0, 12]
-print(move_zeroes2(li))
+print(move_zeroes(li))

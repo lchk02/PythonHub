@@ -7,21 +7,7 @@
 """
 
 
-def reverse_string(s):
-    for i in range(len(s)//2):
-        s[i], s[-(i+1)] = s[-(i+1)], s[i]
-    return s
-
-
 def reverse_words(s):
-    li = s.split(" ")  # ["Let's", 'take', 'LeetCode', 'contest']
-    for i in range(len(li)):
-        tmp = reverse_string(list(li[i]))  # ["L", "e", "t", "'", "s"]
-        li[i] = ''.join(tmp)  # s'teL
-    return ' '.join(li)
-
-
-def reverse_words2(s):
     li = s.split(" ")
     for i in range(len(li)):
         li[i] = ''.join(reversed(list(li[i])))
@@ -29,4 +15,4 @@ def reverse_words2(s):
 
 
 wds = "Let's take LeetCode contest"
-print(reverse_words2(wds))
+print(reverse_words(wds))
