@@ -1,6 +1,6 @@
 from random import shuffle
 
-from algorithm.CalTime import cal_time
+from algorithm.cal_time import cal_time
 
 
 def merge(li, low, mid, high):

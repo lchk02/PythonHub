@@ -7,7 +7,7 @@ LowB三人组排序算法：
 
 import random
 
-from algorithm.CalTime import cal_time
+from algorithm.cal_time import cal_time
 
 
 @cal_time

@@ -27,8 +27,8 @@
 from random import randint
 from copy import deepcopy
 
-from algorithm.QuickSort import quick_sort
-from algorithm.CalTime import cal_time
+from algorithm.quick_sort import quick_sort
+from algorithm.cal_time import cal_time
 
 
 @cal_time

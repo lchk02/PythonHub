@@ -2,7 +2,7 @@
 快排优化：每次随机取一个数，不是每次取第一个数。
 """
 
-from algorithm.CalTime import cal_time
+from algorithm.cal_time import cal_time
 
 
 def partition(li, left, right):
