@@ -14,3 +14,28 @@
 输入：head = [1,2], n = 1
 输出：[1]
 """
+
+from algorithm.link_list import ListNode
+
+
+def remove_nth_from_end(head, n):
+    dummy = ListNode(0, head)
+    fast = head
+    slow = dummy
+    count = 0
+    while fast:
+        fast = fast.next
+        count += 1
+        if count > n:
+            slow = slow.next
+    try:
+        slow.next = slow.next.next
+    except AttributeError:
+        slow.next = None
+    return dummy.next
+
+
+ls = [1, 2, 3, 4]
+hd = ListNode.create_link_list_tail(ls)
+hd = remove_nth_from_end(hd, 4)
+print(ListNode.traverse_link_list(hd))
