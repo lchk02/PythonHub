@@ -8,3 +8,11 @@
 输出：[1,2,4]
 解释：输入数组表示数字 123。
 """
+
+
+def plus_one(digits):
+    result = []
+    flag = 0
+    for i in range(len(digits)-1, -1):
+        digits[i] += 1
+

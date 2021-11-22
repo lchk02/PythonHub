@@ -29,15 +29,28 @@
 
 
 def max_distance(colors):
-    distance = 1
+    i = 0
+    j = len(colors) - 1
+    while i <= j and colors[i] == colors[-1] and colors[j] == colors[0]:
+        i += 1
+        j -= 1
+    return j
+
+
+def max_distance1(colors):
     n = len(colors)
-    for i in range(0, n-1):
-        for j in range(1, n):
-            if colors[j] != colors[i]:
-                if j - i > distance:
-                    distance = j - i
+    distance = n
+    flag = 0
+    while flag == 0 and distance > 0:
+        i = 0
+        distance -= 1
+        while i < n-distance and flag == 0:
+            if colors[i] != colors[i+distance]:
+                flag = 1
+            else:
+                i += 1
     return distance
 
 
-cls = [1, 8, 3, 8, 3]
+cls = [1, 1]
 print(max_distance(cls))
