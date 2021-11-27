@@ -11,8 +11,22 @@
 
 
 def plus_one(digits):
-    result = []
-    flag = 0
-    for i in range(len(digits)-1, -1):
-        digits[i] += 1
+    i = len(digits) - 1
+    flag = 1
+    while i > -1 and flag == 1:
+        if digits[i] + 1 > 9:
+            digits[i] = 0
+            i -= 1
+        else:
+            digits[i] += 1
+            flag = 0
+    if i == -1 and flag == 1:
+        temp = [1]
+        temp.extend(digits)
+        return temp
+    else:
+        return digits
 
+
+ls = [9, 9]
+print(plus_one(ls))
