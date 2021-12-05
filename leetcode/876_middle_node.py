@@ -17,11 +17,11 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5,
 """
 
 
-from algorithm import link_list
+from algorithm.link_list import ListNode
 
 
 def middle_node(ls):
-    head, tail = link_list.create_link_list_tail(ls)
+    head = ListNode.create_link_list_tail(ls)
     slow = head
     fast = head.next
     while fast:
@@ -34,4 +34,4 @@ def middle_node(ls):
 
 
 li = [1]
-print(middle_node(li).item)
+print(middle_node(li).val)
