@@ -30,7 +30,11 @@ __builtin_popcount ）来执行此操作。
 
 
 def count_bits(n):
-    return [str(bin(i)).count("1") for i in range(n+1)]
+    return [bin(i).count("1") for i in range(n+1)]
 
 
-print(count_bits(105))
+def count_bits2(n):
+    result = [i for i in range(n+1)]
+    for i in range(1, n+1):
+        result[i] = result[i & (i-1)] + 1
+    return result
