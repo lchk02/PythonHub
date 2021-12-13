@@ -1,4 +1,4 @@
-""" 5954. 给植物浇水 II
+""" 2105. 给植物浇水 II（271周赛，3）
 Alice 和 Bob 打算给花园里的 n 株植物浇水。植物排成一行，从左到右进行标记，编号从 0 到 n - 1 。
 其中，第 i 株植物的位置是 x = i 。
 
@@ -16,7 +16,6 @@ n - 1 开始。他们 同时 给植物浇水。
 给你一个下标从 0 开始的整数数组 plants ，数组由 n 个整数组成。其中，plants[i] 为第 i 株植物
 需要的水量。另有两个整数 capacityA 和 capacityB 分别表示 Alice 和 Bob 水罐的容量。返回两人
 浇灌所有植物过程中重新灌满水罐的 次数 。
-
 
 示例 1：
 输入：plants = [2,2,3,3], capacityA = 5, capacityB = 5
@@ -67,8 +66,27 @@ Alice 和 Bob 都会到达中间的植物，并且此时他俩剩下的水量相
 这是唯一一次需要重新灌满水罐的情况。所以，两人浇灌所有植物过程中重新灌满水罐的次数 = 1 。
 
 提示：
-n == plants.length
-1 <= n <= 10^5
-1 <= plants[i] <= 10^6
-max(plants[i]) <= capacityA, capacityB <= 10^9
+    n == plants.length
+    1 <= n <= 10^5
+    1 <= plants[i] <= 10^6
+    max(plants[i]) <= capacityA, capacityB <= 10^9
 """
+
+
+def minimum_refill(plants, capacityA, capacityB):
+    a, b, n = capacityA, capacityB, len(plants)
+    i, j, cnt = 0, n-1, 0
+    while i < j:
+        if a < plants[i]:
+            a = capacityA
+            cnt += 1
+        if b < plants[j]:
+            b = capacityB
+            cnt += 1
+        a -= plants[i]
+        i += 1
+        b -= plants[j]
+        j -= 1
+    if i == j and a < plants[i] and b < plants[j]:
+        cnt += 1
+    return cnt

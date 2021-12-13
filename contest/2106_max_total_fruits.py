@@ -1,4 +1,4 @@
-""" 5955. 摘水果
+""" 2106. 摘水果（271周赛，4）
 在一个无限的 x 坐标轴上，有许多水果分布在其中某些位置。给你一个二维整数数组 fruits ，其中
 fruits[i] = [positioni, amounti] 表示共有 amounti 个水果放置在 positioni 上。fruits
 已经按 positioni 升序排列 ，每个 positioni 互不相同 。
@@ -37,10 +37,10 @@ fruits[i] = [positioni, amounti] 表示共有 amounti 个水果放置在 positio
 最多可以移动 k = 2 步，无法到达任一有水果的地方
 
 提示：
-1 <= fruits.length <= 10^5
-fruits[i].length == 2
-0 <= startPos, positioni <= 2 * 10^5
-对于任意 i > 0 ，positioni-1 < positioni 均成立（下标从 0 开始计数）
-1 <= amounti <= 10^4
-0 <= k <= 2 * 10^5
+    1 <= fruits.length <= 10^5
+    fruits[i].length == 2
+    0 <= startPos, positioni <= 2 * 10^5
+    对于任意 i > 0 ，positioni-1 < positioni 均成立（下标从 0 开始计数）
+    1 <= amounti <= 10^4
+    0 <= k <= 2 * 10^5
 """
