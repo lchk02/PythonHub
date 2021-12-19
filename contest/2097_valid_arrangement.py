@@ -33,10 +33,10 @@ end0 = 2 == 2 = start1
 end1 = 1 == 1 = start2
 
 提示：
-1 <= pairs.length <= 105
-pairs[i].length == 2
-0 <= starti, endi <= 109
-starti != endi
-pairs 中不存在一模一样的数对。
-至少 存在 一个合法的 pairs 重新排列。
+    1 <= pairs.length <= 10^5
+    pairs[i].length == 2
+    0 <= starti, endi <= 10^9
+    starti != endi
+    pairs 中不存在一模一样的数对。
+    至少 存在 一个合法的 pairs 重新排列。
 """

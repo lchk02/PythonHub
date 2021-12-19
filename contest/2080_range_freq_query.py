@@ -20,7 +20,14 @@ RangeFreqQuery rangeFreqQuery = new RangeFreqQuery([12, 33, 4, 56, 22, 2, 34,
 33, 22, 12, 34, 56]);
 rangeFreqQuery.query(1, 2, 4); // 返回 1 。4 在子数组 [33, 4] 中出现 1 次。
 rangeFreqQuery.query(0, 11, 33); // 返回 2 。33 在整个子数组中出现 2 次。
+
+提示：
+    1 <= arr.length <= 10^5
+    1 <= arr[i], value <= 10^4
+    0 <= left <= right < arr.length
+    调用 query 不超过 10^5 次。
 """
+
 import bisect
 from collections import defaultdict
 

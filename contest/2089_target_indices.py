@@ -27,6 +27,10 @@
 输入：nums = [1,2,5,2,3], target = 4
 输出：[]
 解释：nums 中不含值为 4 的元素。
+
+提示：
+    1 <= nums.length <= 100
+    1 <= nums[i], target <= 100
 """
 
 from bisect import bisect_left, bisect_right

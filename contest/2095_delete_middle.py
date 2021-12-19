@@ -29,6 +29,10 @@ x 的最大整数。
 对于 n = 2 ，值为 1 的节点 1 是中间节点，用红色标注。
 值为 2 的节点 0 是移除节点 1 后剩下的唯一一个节点。
 
+提示：
+    链表中节点的数目在范围 [1, 10^5] 内
+    1 <= Node.val <= 10^5
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
