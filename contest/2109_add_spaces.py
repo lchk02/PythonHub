@@ -47,8 +47,3 @@ def add_spaces(s, spaces):
             ans += s[spaces[i]: spaces[i+1]]
             ans += " "
     return ans
-
-
-s = "LeetcodeHelpsMeLearn"
-spaces = [0]
-print(add_spaces(s, spaces))

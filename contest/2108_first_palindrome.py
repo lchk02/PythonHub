@@ -29,12 +29,7 @@ words[i] 仅由小写英文字母组成
 def first_palindrome(words):
     ans = ""
     for wd in words:
-        wdr = wd[::-1]
-        if wd == wdr:
+        if wd == wd[::-1]:
             ans = wd
             break
     return ans
-
-
-wds = ["abc", "car", "ada", "racecar", "cool"]
-print(first_palindrome(wds))

@@ -5,11 +5,17 @@
 ## algorithm
 B站清华博士出品的《Python数据结构&算法》的练习代码。
 
+## conding_interviews
+《剑指Offer（专项突破版）：数据结构与算法名企面试题精讲》的练习代码。
+
+## contest
+LeetCode周赛的代码。
+
 ## leetcode
-LeetCode出品的题目清单《初级算法》的练习代码。
+LeetCode其它算法题的练习代码。
 
 ## twenty_day
-LeetCode出品的学习计划《20天算法刷题计划》的练习代码。
+LeetCode出品的学习计划《20天算法刷题计划》，暂时存放未解答的题目。
 
 ## py_ex
 其它Python练习代码。

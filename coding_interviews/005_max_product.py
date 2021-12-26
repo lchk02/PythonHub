@@ -22,3 +22,18 @@
     1 <= words[i].length <= 1000
     words[i] 仅包含小写字母
 """
+
+
+def max_product(words):
+    bin_word = []
+    for wd in words:
+        temp = 0
+        for ch in wd:
+            temp |= 1 << (ord(ch) - 97)
+        bin_word.append(temp)
+    ans, n = 0, len(words)
+    for i in range(n-1):
+        for j in range(i, n):
+            if bin_word[i] & bin_word[j] == 0:
+                ans = max(ans, len(words[i]) * len(words[j]))
+    return ans
