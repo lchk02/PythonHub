@@ -43,6 +43,7 @@ def get_distances(arr):
     temp = defaultdict(list)
     for idx, val in enumerate(arr):  # 构建哈希表
         temp[val].append(idx)
+    print(temp)
     ans = [0] * len(arr)
     for i in temp:
         # 遍历哈希表
@@ -54,5 +55,5 @@ def get_distances(arr):
     return ans
 
 
-ary = [10, 5, 5, 5, 5, 10, 10, 10]
+ary = [2,1,3,1,2,3,3]
 print(get_distances(ary))
