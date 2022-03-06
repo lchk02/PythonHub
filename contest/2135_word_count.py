@@ -12,8 +12,9 @@
 
 重排 新字符串中的字母，可以按 任意 顺序重新排布字母。
 例如，"abcd" 可以重排为 "acbd"、"bacd"、"cbda"，以此类推。注意，它也可以重排为 "abcd" 自身。
-找出 targetWords 中有多少字符串能够由startWords 中的 任一 字符串执行上述转换操作获得。返回
-targetWords 中这类 字符串的数目 。
+找出 targetWords 中有多少字符串能够由startWords 中的 任一 字符串执行上述转换操作获得。
+
+返回 targetWords 中这类 字符串的数目 。
 
 注意：你仅能验证 targetWords 中的字符串是否可以由 startWords 中的某个字符串经执行操作获得。
 startWords 中的字符串在这一过程中 不 发生实际变更。
@@ -43,3 +44,25 @@ startWords 中的字符串在这一过程中 不 发生实际变更。
     startWords 和 targetWords 中的每个字符串都仅由小写英文字母组成
     在 startWords 或 targetWords 的任一字符串中，每个字母至多出现一次
 """
+
+
+def word_count(start, target):
+
+    def trans(word):  # 将字符串转换为二进制数字
+        bw = 0
+        for w in word:
+            bw |= 1 << ord(w) - ord('a')
+        return bw
+
+    start_set = set()  # 开始字符串经过一次转换后的二进制集合
+    for s in start:
+        st = trans(s)
+        for i in range(26):
+            if not st >> i & 1:
+                start_set.add(st | 1 << i)
+
+    res = 0
+    for t in target:
+        if trans(t) in start_set:
+            res += 1
+    return res
