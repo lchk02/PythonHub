@@ -38,5 +38,8 @@ def max_profit(prices):
     return profit
 
 
-li1 = [7, 1, 5, 3, 6, 8]
-print(max_profit(li1))
+def max_profit2(prices):
+    p, q = 0, -prices[0]
+    for i in range(1, len(prices)):
+        p, q = max(p, q + prices[i]), max(q, p - prices[i])
+    return p
