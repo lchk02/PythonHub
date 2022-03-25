@@ -2,9 +2,9 @@ class ListNode(object):
     """
     单向链表
     """
-    def __init__(self, val=0, next_node=None):
+    def __init__(self, val=0, next=None):
         self.val = val
-        self.next = next_node
+        self.next = next
 
     @staticmethod
     def create_link_list_head(ls):
@@ -13,6 +13,8 @@ class ListNode(object):
         :param ls: 以 list 为基础创建链表
         :return: 返回 head
         """
+        if len(ls) == 0:
+            return None
         head = ListNode(ls[0])
         for i in range(1, len(ls)):
             node = ListNode(ls[i])
@@ -27,6 +29,8 @@ class ListNode(object):
         :param ls: 以 list 为基础创建链表
         :return: 返回 head
         """
+        if len(ls) == 0:
+            return None
         head = ListNode(ls[0])
         tail = head
         for i in range(1, len(ls)):
