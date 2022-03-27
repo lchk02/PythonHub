@@ -1,5 +1,5 @@
 """ 933. 最近的请求次数
-写一个 RecentCounter 类来计算特定时间范围内最近的请求。
+写一个RecentCounter类来计算特定时间范围内最近的请求。
 
 请你实现 RecentCounter 类：
     RecentCounter() 初始化计数器，请求数为 0 。
@@ -32,11 +32,16 @@ recentCounter.ping(3002);  // requests = [1, 100, 3001, 3002]，范围是 [2,300
 # param_1 = obj.ping(t)
 """
 
+from collections import deque
+
 
 class RecentCounter:
 
     def __init__(self):
-        pass
+        self.counter = deque()
 
     def ping(self, t: int) -> int:
-        pass
+        self.counter.append(t)
+        while self.counter[0] < t - 3000:
+            self.counter.popleft()
+        return len(self.counter)
