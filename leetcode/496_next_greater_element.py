@@ -31,3 +31,13 @@ nums1中数字x的 下一个更大元素 是指x在nums2 中对应位置 右侧 
 
 进阶：你可以设计一个时间复杂度为 O(nums1.length + nums2.length) 的解决方案吗？
 """
+
+
+def next_greater_element(nums1, nums2):
+    res, stk = {}, []
+    for n in reversed(nums2):
+        while stk and stk[-1] < n:
+            stk.pop()
+        res[n] = stk[-1] if stk else -1
+        stk.append(n)
+    return [res[n] for n in nums1]
