@@ -13,12 +13,45 @@
 示例 3:
 输入: [1,1,1,3,3,4,3,2,4,2]
 输出: true
+
+提示：
+    1 <= nums.length <= 10^5
+    -10^9 <= nums[i] <= 10^9
 """
 
+from collections import Counter
 
-def contains_duplicate(self, nums):
+
+def contains_duplicate(nums):
+    """
+    排序
+    :param nums:
+    :return:
+    """
     nums.sort()
     for i in range(len(nums) - 1):
         if nums[i] == nums[i + 1]:
             return True
     return False
+
+
+def contains_duplicate2(nums):
+    """
+    哈希表
+    :param nums:
+    :return:
+    """
+    cnt = Counter(nums)
+    for i in cnt:
+        if cnt[i] > 1:
+            return True
+    return False
+
+
+def contains_duplicate3(nums):
+    """
+    集合
+    :param nums:
+    :return:
+    """
+    return sum(nums) != sum(set(nums)) if nums.count(0) < 2 else True
