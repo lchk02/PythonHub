@@ -28,6 +28,3 @@ def find_kth_largest(nums, k):
             top[0] = nums[q]
             sift(top, 0, k-1)
     return top[0]
-
-
-print(find_kth_largest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))

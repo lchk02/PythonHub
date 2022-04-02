@@ -3,30 +3,27 @@ from random import shuffle
 from algorithm.cal_time import cal_time
 
 
-def sift(li, low, high):
+def sift(nums, low, high):
     """
-    堆的向下调整，小根堆
-    :param li: 列表形式的堆
-    :param low: 指向堆顶的游标
-    :param high: 指向堆底的游标
-    :return: null
+    堆的向下调整函数，小根堆
+    :param nums: 列表形式的待调整的小根堆，左右子堆为小根堆，根节点比左右节点大
+    :param low: 指向根节点
+    :param high: 指向最后一个叶子节点
+    :return: None
     """
-    i = low  # 先让i指向堆顶
-    j = 2 * i + 1  # j开始是指向i的左孩子
-    temp = li[i]  # 将堆顶存起来
+    i, temp = low, nums[low]  # i始终指向可被替换的节点
+    j = 2 * i + 1
     while j <= high:
-        if j+1 <= high and li[j] > li[j+1]:
-            j = j + 1
-        if temp > li[j]:
-            li[i] = li[j]
-            i = j  # 往下看一层
-            j = 2 * j + 1
-        else:  # 中间找到了放temp的位置
-            li[i] = temp
+        if j + 1 <= high and nums[j + 1] < nums[j]:  # 大根堆反转后一个比较符
+            j += 1
+        if temp > nums[j]:  # 往下看一层，大根堆反转该比较符
+            nums[i], i = nums[j], j
+            j = 2 * i + 1
+        else:  # 在中间找到了temp的位置
+            nums[i] = temp
             break
-    else:  # 最底层找到了放temp的位置
-        li[i] = temp
-    return li
+    else:  # 触底
+        nums[i] = temp
 
 
 @cal_time
