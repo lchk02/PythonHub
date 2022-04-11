@@ -28,14 +28,33 @@
 from algorithm.link_list import ListNode
 
 
-def reverse_list(head):
-    if head:
-        tail, cur = head, head.next
-        while cur:
-            tail.next, cur.next = cur.next, head
-            head, cur = cur, tail.next
-    return head
+class Solution:
+    def reverse_list(self, head: ListNode) -> ListNode:
+        """
+        迭代
+        :param head:
+        :return:
+        """
+        if head:
+            tail, cur = head, head.next
+            while cur:
+                tail.next, cur.next = cur.next, head
+                head, cur = cur, tail.next
+        return head
+
+    def reverse_list2(self, head: ListNode) -> ListNode:
+        """
+        递归
+        :param head:
+        :return:
+        """
+        if not head or not head.next:
+            return head
+        cur = self.reverse_list2(head.next)
+        head.next.next, head.next = head, None
+        return cur
 
 
-hd = ListNode.create_link_list_tail([])
-print(ListNode.traverse_link_list(reverse_list(hd)))
+s = Solution()
+hd = ListNode.create_link_list_tail([1, 2, 3, 4, 5])
+print(ListNode.traverse_link_list(s.reverse_list2(hd)))

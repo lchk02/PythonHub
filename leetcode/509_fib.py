@@ -26,11 +26,28 @@ F(n) = F(n - 1) + F(n - 2)，其中 n > 1
 """
 
 
-def fib(n: int) -> int:
-    if n < 2:
-        return n
-    else:
-        p, q = 0, 1
-        for i in range(2, n+1):
-            p, q = q, p + q
-        return q
+class Solution:
+    def fib(self, n: int) -> int:
+        """
+        动态规划
+        :param n:
+        :return:
+        """
+        if n < 2:
+            return n
+        else:
+            p, q = 0, 1
+            for i in range(2, n+1):
+                p, q = q, p + q
+            return q
+
+    def fib2(self, n: int) -> int:
+        """
+        递归
+        :param n:
+        :return:
+        """
+        if n < 2:
+            return n
+        else:
+            return self.fib2(n-1) + self.fib2(n-2)
