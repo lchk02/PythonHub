@@ -43,9 +43,3 @@ ABC;AKL;DA1;
 输出：
 0,0
 """
-
-import sys
-
-for line in sys.stdin:
-    a = line.split()
-    print(int(a[0]) + int(a[1]))
